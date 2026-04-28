@@ -4,7 +4,7 @@ import argparse
 from pprint import pprint
 
 from querygenai.ingestion import ensure_database, ingest_sample_data
-from querygenai.sql_agent import SQLQueryService
+from querygenai.sql_agent import SQLQueryService, SQLSafetyError, UnsupportedQueryError
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -36,7 +36,12 @@ def main() -> None:
     if args.command == "ask":
         ensure_database()
         service = SQLQueryService()
-        result = service.answer_question(args.question)
+        try:
+            result = service.answer_question(args.question)
+        except (SQLSafetyError, UnsupportedQueryError) as error:
+            print(f"Query error: {error}")
+            return
+
         print("SQL:")
         print(result.sql)
         print("\nRows:")

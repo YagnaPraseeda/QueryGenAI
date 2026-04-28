@@ -6,7 +6,7 @@ import plotly.express as px
 from querygenai.config import settings
 from querygenai.database import run_query
 from querygenai.ingestion import ensure_database
-from querygenai.sql_agent import SQLQueryService, SQLSafetyError
+from querygenai.sql_agent import SQLQueryService, SQLSafetyError, UnsupportedQueryError
 
 
 def _metric_card(label: str, value: str) -> html.Div:
@@ -291,7 +291,7 @@ def create_dashboard() -> Dash:
             columns = [{"name": col, "id": col} for col in rows[0].keys()] if rows else []
             status = f"Query source: {result.source}"
             return status, result.sql, rows, columns
-        except SQLSafetyError as error:
+        except (SQLSafetyError, UnsupportedQueryError) as error:
             return str(error), "", [], []
         except Exception as error:
             return f"Query failed: {error}", "", [], []

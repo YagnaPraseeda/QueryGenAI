@@ -1,6 +1,6 @@
 # QueryGenAI
 
-`QueryGenAI` is an interview-ready natural language to SQL project built from scratch with Python, SQLite, Pandas, Dash, Plotly, and optional Groq-powered SQL generation.
+`QueryGenAI` is an interview-ready natural language to SQL project built from scratch with Python, SQLite, Pandas, Dash, Plotly, and Groq-powered SQL generation with a local fallback mode.
 
 ## What it does
 
@@ -9,6 +9,7 @@
 - Converts natural language questions into SQL using Groq or a local fallback engine
 - Validates generated SQL so only read-only `SELECT` statements run
 - Displays KPIs, charts, generated SQL, and query results in a Dash dashboard
+- Shows whether a query came from `groq` or `fallback` for easier demos
 
 ## Project structure
 
@@ -35,7 +36,7 @@ GROQ_API_KEY=your_key_here
 GROQ_MODEL=llama-3.1-8b-instant
 ```
 
-If `GROQ_API_KEY` is missing, the app still works using a deterministic fallback translator for common analytics questions.
+If `GROQ_API_KEY` is missing, the app still works using a deterministic fallback translator for common analytics questions. When a question is outside the fallback rule set, the app now returns a clear error instead of silently showing unrelated results.
 
 ## Run
 
@@ -57,6 +58,12 @@ Start the dashboard:
 querygenai dashboard
 ```
 
+If port `8050` is already in use:
+
+```bash
+querygenai dashboard --port 8051
+```
+
 ## Sample questions
 
 - `What is total revenue by month?`
@@ -64,6 +71,19 @@ querygenai dashboard
 - `Which region has the highest revenue?`
 - `What is the average order value by segment?`
 - `List the most recent 10 orders`
+- `List customers`
+- `Show the product names starts with insight`
+
+## Fallback mode
+
+Without Groq, the local fallback handles a small set of demo-friendly patterns such as:
+
+- Revenue by month, region, category, and top products
+- Recent orders
+- Customer and product listing queries
+- Product name prefix and contains filters
+
+This keeps the project usable in interviews even if an API key is unavailable.
 
 ## Test
 
