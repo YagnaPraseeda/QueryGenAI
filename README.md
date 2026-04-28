@@ -1,6 +1,6 @@
 # QueryGenAI
 
-`QueryGenAI` is an interview-ready natural language to SQL project built from scratch with Python, SQLite, Pandas, Dash, Plotly, and Groq-powered SQL generation with a local fallback mode.
+`QueryGenAI` is a natural language to SQL analytics project built with Python, SQLite, Pandas, Dash, Plotly, and Groq-powered SQL generation with a local fallback mode.
 
 ## What it does
 
@@ -9,7 +9,7 @@
 - Converts natural language questions into SQL using Groq or a local fallback engine
 - Validates generated SQL so only read-only `SELECT` statements run
 - Displays KPIs, charts, generated SQL, and query results in a Dash dashboard
-- Shows whether a query came from `groq` or `fallback` for easier demos
+- Shows whether a query came from `groq` or `fallback`
 
 ## Project structure
 
@@ -76,14 +76,14 @@ querygenai dashboard --port 8051
 
 ## Fallback mode
 
-Without Groq, the local fallback handles a small set of demo-friendly patterns such as:
+Without Groq, the local fallback handles a small set of common patterns such as:
 
 - Revenue by month, region, category, and top products
 - Recent orders
 - Customer and product listing queries
 - Product name prefix and contains filters
 
-This keeps the project usable in interviews even if an API key is unavailable.
+This keeps the project usable even if an API key is unavailable.
 
 ## Test
 
