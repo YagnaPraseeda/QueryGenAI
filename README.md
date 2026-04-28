@@ -70,10 +70,3 @@ querygenai dashboard
 ```bash
 pytest
 ```
-
-## Interview talking points
-
-- End-to-end pipeline from flat files to analytics-ready SQL tables
-- Safe prompt engineering plus SQL validation before execution
-- Practical fallback behavior when the LLM is unavailable
-- Business-facing dashboard that exposes both generated SQL and results
