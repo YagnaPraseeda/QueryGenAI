@@ -1,0 +1,2 @@
+"""QueryGenAI package."""
+

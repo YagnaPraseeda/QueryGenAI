@@ -1,0 +1,10 @@
+product_id,product_name,category,unit_price
+P001,Insight BI Starter,Software,1200
+P002,Insight BI Pro,Software,2400
+P003,Ops Dashboard Pack,Analytics,1800
+P004,Forecast Toolkit,Analytics,2200
+P005,Data Quality Audit,Services,900
+P006,Schema Migration Sprint,Services,3200
+P007,Executive KPI Workshop,Services,1500
+P008,Realtime Alerting Addon,Software,1700
+

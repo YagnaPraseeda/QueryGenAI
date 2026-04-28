@@ -1,0 +1,12 @@
+customer_id,customer_name,segment,city,state,region
+C001,Acme Health,Enterprise,Indianapolis,IN,Midwest
+C002,Northwind Retail,SMB,Chicago,IL,Midwest
+C003,BlueRiver Labs,Enterprise,Austin,TX,South
+C004,Summit Finance,Mid-Market,New York,NY,Northeast
+C005,Lakeview Education,SMB,Columbus,OH,Midwest
+C006,Sunline Energy,Enterprise,Denver,CO,West
+C007,Metro Logistics,Mid-Market,Atlanta,GA,South
+C008,Harbor Media,SMB,Boston,MA,Northeast
+C009,Pioneer Foods,Enterprise,Seattle,WA,West
+C010,Crescent Telecom,Mid-Market,Nashville,TN,South
+

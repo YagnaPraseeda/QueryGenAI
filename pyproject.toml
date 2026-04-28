@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "querygenai"
+version = "0.1.0"
+description = "Interview-ready natural language to SQL analytics app"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dash==2.18.2",
+    "groq==0.18.0",
+    "pandas==2.2.3",
+    "plotly==5.24.1",
+    "python-dotenv==1.0.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.4"]
+
+[project.scripts]
+querygenai = "querygenai.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-p no:cacheprovider"
+testpaths = ["tests"]
